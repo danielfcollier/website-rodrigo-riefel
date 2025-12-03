@@ -2,95 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors - HSL converted from hex */
+    --brand: 215 39% 38%; /* #3B5986 */
+    --brand-bold: 215 55% 21%; /* #173056 */
+    --brand-complementary: 43 43% 81%; /* #E5DBB9 */
+    --brand-complementary-bold: 47 12% 61%; /* #AAA48C */
+    
+    /* Core Colors */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 33%; /* #555555 */
+    
+    /* CTA Color */
+    --cta: 168 58% 42%; /* #1abc9c */
+    --cta-hover: 168 58% 36%;
+    --cta-foreground: 0 0% 100%;
 
+    /* Semantic Mapping */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 33%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 33%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 215 39% 38%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 43 43% 81%;
+    --secondary-foreground: 215 55% 21%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 43 43% 81%;
+    --muted-foreground: 47 12% 61%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 168 58% 42%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 43 43% 81%;
+    --input: 43 43% 81%;
+    --ring: 215 39% 38%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* WhatsApp */
+    --whatsapp: 142 70% 45%;
+    --whatsapp-hover: 142 70% 40%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* YouTube */
+    --youtube: 0 100% 50%;
+    --youtube-hover: 0 100% 45%;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Spotify */
+    --spotify: 141 73% 42%;
+    --spotify-hover: 141 73% 37%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 215 55% 21%;
+    --foreground: 0 0% 100%;
+    --card: 215 39% 38%;
+    --card-foreground: 0 0% 100%;
+    --popover: 215 39% 38%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 43 43% 81%;
+    --primary-foreground: 215 55% 21%;
+    --secondary: 215 39% 38%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 39% 38%;
+    --muted-foreground: 43 43% 81%;
+    --accent: 168 58% 42%;
+    --accent-foreground: 0 0% 100%;
+    --border: 215 39% 38%;
+    --input: 215 39% 38%;
+    --ring: 43 43% 81%;
   }
 }
 
@@ -99,7 +86,39 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-brand-bold;
+  }
+}
+
+@layer components {
+  .section-brand {
+    @apply bg-brand text-primary-foreground;
+  }
+
+  .section-white {
     @apply bg-background text-foreground;
+  }
+
+  .container-section {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20;
+  }
+
+  .quote-text {
+    @apply italic text-lg md:text-xl leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
