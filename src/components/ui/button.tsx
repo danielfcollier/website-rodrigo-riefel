@@ -5,21 +5,29 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-brand-bold",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-brand-complementary-bold",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        cta: "bg-cta text-cta-foreground hover:bg-cta-hover shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
+        whatsapp: "bg-whatsapp text-cta-foreground hover:bg-whatsapp-hover shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
+        youtube: "bg-youtube text-cta-foreground hover:bg-youtube-hover shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
+        spotify: "bg-spotify text-cta-foreground hover:bg-spotify-hover shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
+        hero: "bg-cta text-cta-foreground hover:bg-cta-hover shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-base md:text-lg px-8 py-4",
+        heroOutline: "border-2 border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 text-base md:text-lg px-8 py-4",
+        brandOutline: "border-2 border-brand bg-transparent text-brand hover:bg-brand hover:text-primary-foreground",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        xl: "h-14 rounded-lg px-10 text-lg",
         icon: "h-10 w-10",
       },
     },
