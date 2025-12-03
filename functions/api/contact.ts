@@ -8,7 +8,6 @@ interface ContactRequest {
   email: string;
   phone: string;
   message: string;
-  origin: string;
   createdAt: string;
   turnstileToken: string;
 }
@@ -58,13 +57,12 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           email: body.email,
           phone: body.phone,
           message: body.message,
-          origin: body.origin,
           createdAt: body.createdAt,
         }),
       });
 
       if (!googleResponse.ok) {
-        throw new Error("Erro ao enviar para Google Apps Script");
+        throw new Error("Erro ao enviar mensagem, tente novamente!");
       }
     }
 
@@ -78,7 +76,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   } catch (error) {
     console.error("Contact form error:", error);
     return new Response(
-      JSON.stringify({ error: "Erro interno do servidor" }),
+      JSON.stringify({ error: error.message}),
       {
         status: 500,
         headers: { "Content-Type": "application/json" },

@@ -110,7 +110,6 @@ const Contato = () => {
           email: data.email,
           phone: data.phone,
           message: data.message,
-          origin: window.location.origin,
           createdAt: new Date().toISOString(),
           turnstileToken,
         }),
