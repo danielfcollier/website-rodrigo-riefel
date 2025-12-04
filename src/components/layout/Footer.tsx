@@ -25,22 +25,22 @@ const Footer = () => {
             </div>
           </div>
 
-          <nav className="flex items-center gap-6 text-sm">
-            <a href="/sobre" className="hover:text-brand-complementary transition-colors">
+          <nav className="flex items-center gap-6 text-sm text-brand-complementary">
+            <a href="/sobre" className="hover:opacity-80 transition-opacity">
               Sobre
             </a>
-            <a href="/contato" className="hover:text-brand-complementary transition-colors">
+            <a href="/contato" className="hover:opacity-80 transition-opacity">
               Contato
             </a>
           </nav>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-primary-foreground/20 flex flex-col items-center gap-4">
+        <div className="mt-8 pt-8 border-t border-brand-complementary/20 flex flex-col items-center gap-4">
           <a 
             href="https://www.instagram.com/rodrigo.riefel" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-primary-foreground hover:text-brand-complementary transition-colors"
+            className="text-brand-complementary hover:opacity-80 transition-opacity"
             aria-label="Instagram"
           >
             <Instagram className="w-6 h-6" />
@@ -49,7 +49,7 @@ const Footer = () => {
             href="https://websiteturbo.com.br" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+            className="text-sm text-brand-complementary/60 hover:text-brand-complementary transition-colors"
           >
             Desenvolvido por Website Turbo
           </a>

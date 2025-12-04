@@ -30,10 +30,10 @@ const BioSection = () => {
                 loading="lazy"
               />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mt-8 text-brand-complementary uppercase">
+            <h2 className="text-3xl md:text-4xl font-bold mt-8 text-brand uppercase">
               DR. RODRIGO RIEFEL
             </h2>
-            <p className="text-brand-complementary uppercase tracking-wider mt-2">
+            <p className="text-brand uppercase tracking-wider mt-2">
               CRM-SC 11.260 | RQE 11.922
             </p>
           </div>

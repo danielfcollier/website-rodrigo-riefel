@@ -14,7 +14,7 @@ const AppointmentSection = () => {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           <div className="space-y-6 flex flex-col items-center md:items-start">
-            <div className="flex flex-col items-center text-center gap-2">
+            <div className="flex items-center gap-4">
               <div className="p-3 bg-primary-foreground/10 rounded-lg">
                 <MapPin className="w-6 h-6 text-brand-complementary" />
               </div>
@@ -24,7 +24,7 @@ const AppointmentSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center text-center gap-2">
+            <div className="flex items-center gap-4">
               <div className="p-3 bg-primary-foreground/10 rounded-lg">
                 <Clock className="w-6 h-6 text-brand-complementary" />
               </div>
@@ -37,7 +37,7 @@ const AppointmentSection = () => {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center text-center gap-2 group"
+              className="flex items-center gap-4 group"
             >
               <div className="p-3 bg-whatsapp/20 rounded-lg group-hover:bg-whatsapp/30 transition-colors">
                 <MessageCircle className="w-6 h-6 text-whatsapp" />
