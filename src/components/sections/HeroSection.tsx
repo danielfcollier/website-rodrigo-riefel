@@ -14,22 +14,19 @@ const HeroSection = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(135deg, hsl(215 55% 21% / 0.92), hsl(215 39% 38% / 0.85))",
-        }}
-      />
-
       <div className="container-section relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-primary-foreground animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-primary-foreground">
+          <div 
+            className="text-primary-foreground animate-fade-in p-8 md:p-10 rounded-xl max-w-2xl"
+            style={{
+              background: "linear-gradient(135deg, hsl(215 55% 21% / 0.92), hsl(215 39% 38% / 0.85))",
+            }}
+          >
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-primary-foreground">
               Restaure sua Saúde Mental e Emocional com{" "}
               <span className="text-brand-complementary">menos medicamentos</span>.
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
               Referência entre Pacientes e Profissionais de Saúde no Tratamento Psicoemocional.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
