@@ -6,68 +6,66 @@ const WHATSAPP_LINK = "https://api.whatsapp.com/send?phone=5548988020380&text=Ol
 
 const AppointmentSection = () => {
   return (
-    <section className="section-white">
+    <section className="section-brand">
       <div className="container-section">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-brand-bold">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-foreground">
           Agendamento de Consultas
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-brand/10 rounded-lg">
-                <MapPin className="w-6 h-6 text-brand" />
+          <div className="space-y-6 flex flex-col items-center md:items-start">
+            <div className="flex flex-col items-center text-center gap-2">
+              <div className="p-3 bg-primary-foreground/10 rounded-lg">
+                <MapPin className="w-6 h-6 text-brand-complementary" />
               </div>
               <div>
-                <p className="font-semibold text-brand-bold">Online para todo o Brasil</p>
-                <p className="text-foreground/80">Presencial em Florianópolis</p>
+                <p className="font-semibold text-primary-foreground">Online para todo o Brasil</p>
+                <p className="text-primary-foreground/80">Presencial em Florianópolis</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-brand/10 rounded-lg">
-                <Clock className="w-6 h-6 text-brand" />
+            <div className="flex flex-col items-center text-center gap-2">
+              <div className="p-3 bg-primary-foreground/10 rounded-lg">
+                <Clock className="w-6 h-6 text-brand-complementary" />
               </div>
               <div>
-                <p className="font-semibold text-brand-bold">Consultas de 1 hora</p>
+                <p className="font-semibold text-primary-foreground">Consultas de 1 hora</p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <a 
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-4 group"
-              >
-                <div className="p-3 bg-whatsapp/10 rounded-lg group-hover:bg-whatsapp/20 transition-colors">
-                  <MessageCircle className="w-6 h-6 text-whatsapp" />
-                </div>
-                <div>
-                  <p className="font-semibold text-whatsapp group-hover:underline">
-                    Dúvidas? Entre em contato
-                  </p>
-                </div>
-              </a>
-            </div>
+            <a 
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center text-center gap-2 group"
+            >
+              <div className="p-3 bg-whatsapp/20 rounded-lg group-hover:bg-whatsapp/30 transition-colors">
+                <MessageCircle className="w-6 h-6 text-whatsapp" />
+              </div>
+              <div>
+                <p className="font-semibold text-whatsapp group-hover:underline">
+                  Dúvidas? Entre em contato
+                </p>
+              </div>
+            </a>
           </div>
 
-          <div className="space-y-6 text-center md:text-left">
-            <Button variant="cta" size="xl" className="w-full md:w-auto" asChild>
+          <div className="space-y-6 flex flex-col items-center">
+            <div className="flex flex-col items-center text-center gap-2 mb-4">
+              <div className="p-3 bg-primary-foreground/10 rounded-lg">
+                <HeartHandshake className="w-6 h-6 text-brand-complementary" />
+              </div>
+              <div>
+                <p className="font-semibold text-primary-foreground">Consultas Particulares</p>
+                <p className="text-primary-foreground/80">Não aceita Planos de Saúde</p>
+              </div>
+            </div>
+
+            <Button variant="cta" size="xl" className="w-full max-w-xs text-lg" asChild>
               <a href={CTA_LINK} target="_blank" rel="noopener noreferrer">
                 Agendar Consulta
               </a>
             </Button>
-
-            <div className="flex items-start gap-4 justify-center md:justify-start">
-              <div className="p-3 bg-brand-complementary/30 rounded-lg">
-                <HeartHandshake className="w-6 h-6 text-brand" />
-              </div>
-              <div className="text-left">
-                <p className="font-semibold text-brand-bold">Consultas Particulares</p>
-                <p className="text-foreground/80">Não aceita Planos de Saúde</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

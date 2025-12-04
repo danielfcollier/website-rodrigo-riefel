@@ -25,9 +25,9 @@ const disorders = [
 
 const DisordersSection = () => {
   return (
-    <section id="transtornos" className="section-brand">
+    <section id="transtornos" className="section-white">
       <div className="container-section">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-foreground">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-brand-bold">
           Transtornos À Saúde Mental e Emocional
         </h2>
 
@@ -35,17 +35,17 @@ const DisordersSection = () => {
           {disorders.map((item, index) => (
             <div 
               key={index}
-              className="flex items-start gap-4 p-6 bg-primary-foreground/10 rounded-lg backdrop-blur-sm hover:bg-primary-foreground/15 transition-colors"
+              className="flex items-start gap-4 p-6 bg-brand/10 rounded-lg hover:bg-brand/15 transition-colors"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="p-3 bg-brand-complementary rounded-lg">
                 <item.icon className="w-8 h-8 text-brand-bold" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2 text-primary-foreground">
+                <h3 className="text-xl font-semibold mb-2 text-brand-bold">
                   {item.title}
                 </h3>
-                <p className="text-primary-foreground/80">
+                <p className="text-foreground/80">
                   {item.description}
                 </p>
               </div>
@@ -54,7 +54,7 @@ const DisordersSection = () => {
         </div>
 
         <blockquote className="max-w-3xl mx-auto text-center">
-          <p className="quote-text text-primary-foreground/90 border-l-4 border-brand-complementary pl-6 text-left">
+          <p className="quote-text text-foreground/90 text-center">
             "O foco é o tratamento da pessoa e não da doença. Isso direciona uma busca 
             para as causas mais profundas dos sintomas e ajuda na verdadeira superação dos distúrbios."
           </p>

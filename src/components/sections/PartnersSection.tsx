@@ -12,9 +12,9 @@ const partners = [
 
 const PartnersSection = () => {
   return (
-    <section className="section-brand">
+    <section className="section-white">
       <div className="container-section">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-foreground">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-brand-bold">
           Instituições e Grupos Parceiros
         </h2>
 
@@ -24,7 +24,7 @@ const PartnersSection = () => {
               key={index}
               className="flex flex-col items-center gap-3 p-4 hover:scale-105 transition-transform"
             >
-              <div className="w-20 h-20 bg-primary-foreground rounded-lg flex items-center justify-center p-2 shadow-lg">
+              <div className="w-20 h-20 bg-background rounded-lg flex items-center justify-center p-2 shadow-lg border border-border">
                 <img 
                   src={partner.icon} 
                   alt={partner.name}
@@ -32,7 +32,7 @@ const PartnersSection = () => {
                   loading="lazy"
                 />
               </div>
-              <span className="text-primary-foreground font-medium text-sm">
+              <span className="text-brand-bold font-medium text-sm">
                 {partner.name}
               </span>
             </div>

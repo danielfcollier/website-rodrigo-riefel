@@ -15,11 +15,16 @@ const Header = () => {
               className="h-12 w-auto"
               loading="eager"
             />
-            <span className="text-primary-foreground font-bold text-3xl tracking-wide uppercase">
-              Rodrigo Riefel
-            </span>
+            <div className="flex flex-col">
+              <span className="text-brand-complementary font-bold text-3xl tracking-wide uppercase">
+                RODRIGO RIEFEL
+              </span>
+              <span className="text-brand-complementary text-sm tracking-wider uppercase">
+                CRM-SC 11.260 | RQE 11.922
+              </span>
+            </div>
           </a>
-          <Button variant="cta" asChild>
+          <Button variant="cta" size="lg" className="text-lg px-8" asChild>
             <a href={CTA_LINK} target="_blank" rel="noopener noreferrer">
               Agendar Consulta
             </a>

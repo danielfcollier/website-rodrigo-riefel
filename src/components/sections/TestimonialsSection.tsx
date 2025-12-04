@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, User } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import adrianaImage from "@/assets/testimonial_adriana.jpg";
+import jackieImage from "@/assets/testimonial_jackie.png";
 
 const testimonials = [
   {
@@ -12,7 +13,7 @@ const testimonials = [
   {
     name: "Jackie Yue",
     role: "Sócia-Presidente, Alkhemy Lab",
-    image: null,
+    image: jackieImage,
     quote: "É uma das pessoas mais incríveis que conheço: íntegro, sábio e compassivo - dedicado ao bem maior de todos que o procuram. Ele é parte do seleto grupo de profissionais 'guardiões do conhecimento' a quem confio nosso trabalho alquímico e terapêutico.",
   },
 ];
@@ -25,36 +26,26 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="section-white">
+    <section className="section-brand">
       <div className="container-section">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-brand-bold">
-          Recomendações
-        </h2>
-
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="bg-brand-complementary/20 rounded-xl p-6 md:p-8"
+              className="bg-primary-foreground/10 rounded-xl p-6 md:p-8"
             >
               <div className="flex items-center gap-4 mb-4">
-                {testimonial.image ? (
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-brand"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="w-16 h-16 rounded-full bg-brand/20 flex items-center justify-center border-2 border-brand">
-                    <User className="w-8 h-8 text-brand" />
-                  </div>
-                )}
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.name}
+                  className="w-16 h-16 rounded-full object-cover border-2 border-brand-complementary"
+                  loading="lazy"
+                />
                 <div>
-                  <h3 className="font-semibold text-lg text-brand-bold">
+                  <h3 className="font-semibold text-lg text-primary-foreground">
                     {testimonial.name}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-primary-foreground/70">
                     {testimonial.role}
                   </p>
                 </div>
@@ -64,7 +55,7 @@ const TestimonialsSection = () => {
               <div className="md:hidden">
                 <button 
                   onClick={() => toggleExpand(index)}
-                  className="flex items-center gap-2 text-brand font-medium mb-2"
+                  className="flex items-center gap-2 text-brand-complementary font-medium mb-2"
                 >
                   {expandedIndex === index ? (
                     <>
@@ -79,14 +70,14 @@ const TestimonialsSection = () => {
                   )}
                 </button>
                 {expandedIndex === index && (
-                  <blockquote className="quote-text text-foreground/80 animate-fade-in">
+                  <blockquote className="quote-text text-primary-foreground/80 animate-fade-in">
                     "{testimonial.quote}"
                   </blockquote>
                 )}
               </div>
 
               {/* Desktop: Always visible */}
-              <blockquote className="hidden md:block quote-text text-foreground/80">
+              <blockquote className="hidden md:block quote-text text-primary-foreground/80">
                 "{testimonial.quote}"
               </blockquote>
             </div>
