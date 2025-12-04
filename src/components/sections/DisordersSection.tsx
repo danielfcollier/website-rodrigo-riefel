@@ -4,22 +4,18 @@ const disorders = [
   {
     icon: HeartPulse,
     title: "Aflições e Distúrbios",
-    description: "Tratamento especializado para ansiedade, depressão e outros transtornos.",
   },
   {
     icon: Puzzle,
     title: "Emoções em Conflito",
-    description: "Apoio para lidar com conflitos emocionais e relacionamentos difíceis.",
   },
   {
     icon: Pill,
     title: "Exagero em Medicamentos",
-    description: "Revisão e otimização do uso de medicamentos psiquiátricos.",
   },
   {
     icon: Compass,
     title: "Falta de Direcionamento",
-    description: "Orientação para encontrar propósito e clareza na vida.",
   },
 ];
 
@@ -42,12 +38,9 @@ const DisordersSection = () => {
                 <item.icon className="w-8 h-8 text-brand-bold" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2 text-brand-bold">
+                <h3 className="text-xl font-semibold text-brand-bold">
                   {item.title}
                 </h3>
-                <p className="text-foreground/80">
-                  {item.description}
-                </p>
               </div>
             </div>
           ))}

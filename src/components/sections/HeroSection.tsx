@@ -22,7 +22,7 @@ const HeroSection = () => {
               background: "linear-gradient(135deg, hsl(215 55% 21% / 0.92), hsl(215 39% 38% / 0.85))",
             }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 text-primary-foreground">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 text-primary-foreground">
               Restaure sua Saúde Mental e Emocional com{" "}
               <span className="text-brand-complementary">menos medicamentos</span>.
             </h1>
