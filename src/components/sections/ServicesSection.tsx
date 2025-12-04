@@ -4,17 +4,14 @@ const services = [
   {
     icon: Brain,
     title: "Psiquiatria e Psicoterapia",
-    description: "Abordagem integrada para diagnóstico e tratamento de transtornos mentais.",
   },
   {
     icon: Leaf,
     title: "Medicina Integrativa",
-    description: "Tratamentos complementares que consideram corpo, mente e espírito.",
   },
   {
     icon: Triangle,
     title: "Terapia e Autoconhecimento",
-    description: "Jornada de autodescoberta para uma vida mais plena e consciente.",
   },
 ];
 
@@ -31,12 +28,9 @@ const ServicesSection = () => {
               <div className="inline-flex p-4 bg-brand-complementary rounded-full mb-6">
                 <service.icon className="w-10 h-10 text-brand-bold" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-primary-foreground">
+              <h3 className="text-xl font-semibold text-primary-foreground">
                 {service.title}
               </h3>
-              <p className="text-primary-foreground/80">
-                {service.description}
-              </p>
             </div>
           ))}
         </div>
