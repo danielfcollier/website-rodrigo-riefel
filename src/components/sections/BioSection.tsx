@@ -18,7 +18,7 @@ const credentials = [
 
 const BioSection = () => {
   return (
-    <section className="section-brand">
+    <section className="section-white">
       <div className="container-section">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center">
@@ -26,15 +26,14 @@ const BioSection = () => {
               <img 
                 src={profileImage} 
                 alt="Dr. Rodrigo Riefel"
-                className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-brand-complementary shadow-2xl mx-auto"
+                className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover object-top border-4 border-brand-complementary shadow-2xl mx-auto"
                 loading="lazy"
               />
-              <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-brand-complementary rounded-full" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mt-8 text-primary-foreground">
-              Dr. Rodrigo Riefel
+            <h2 className="text-3xl md:text-4xl font-bold mt-8 text-brand-complementary uppercase">
+              DR. RODRIGO RIEFEL
             </h2>
-            <p className="text-primary-foreground/80 uppercase tracking-wider mt-2">
+            <p className="text-brand-complementary uppercase tracking-wider mt-2">
               CRM-SC 11.260 | RQE 11.922
             </p>
           </div>
@@ -43,12 +42,12 @@ const BioSection = () => {
             {credentials.map((item, index) => (
               <div 
                 key={index}
-                className="flex items-center gap-4 p-4 bg-primary-foreground/10 rounded-lg"
+                className="flex items-center gap-4 p-4 bg-brand/10 rounded-lg"
               >
                 <div className="p-3 bg-brand-complementary rounded-lg">
                   <item.icon className="w-6 h-6 text-brand-bold" />
                 </div>
-                <span className="text-lg text-primary-foreground font-medium">
+                <span className="text-lg text-brand-bold font-medium">
                   {item.title}
                 </span>
               </div>

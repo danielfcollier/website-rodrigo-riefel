@@ -25,11 +25,13 @@ const contactSchema = z.object({
     .min(1, "Telefone é obrigatório")
     .refine(
       (val) => {
-        // Brazilian format: (XX) XXXXX-XXXX or (XX) XXXX-XXXX
-        const brFormat = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
-        // International format: +XX XXXXXXXXXX
-        const intFormat = /^\+\d{1,3}\s?\d{6,14}$/;
-        return brFormat.test(val) || intFormat.test(val);
+        const digits = val.replace(/\D/g, "");
+        // Brazilian format: 10-11 digits (with DDD)
+        // International format: starts with + and has 7-15 digits
+        if (val.startsWith("+")) {
+          return digits.length >= 7 && digits.length <= 15;
+        }
+        return digits.length >= 10 && digits.length <= 11;
       },
       "Formato inválido. Use (XX) XXXXX-XXXX ou +XX XXXXXXXXXX"
     ),
@@ -50,6 +52,28 @@ declare global {
   }
 }
 
+const formatPhoneNumber = (value: string): string => {
+  // If starts with +, use international format
+  if (value.startsWith("+")) {
+    const digits = value.replace(/[^\d+]/g, "");
+    return digits;
+  }
+  
+  // Brazilian format
+  const digits = value.replace(/\D/g, "");
+  
+  if (digits.length <= 2) {
+    return digits.length > 0 ? `(${digits}` : "";
+  }
+  if (digits.length <= 6) {
+    return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  }
+  if (digits.length <= 10) {
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  }
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7, 11)}`;
+};
+
 const Contato = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -60,10 +84,16 @@ const Contato = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    setValue,
+    watch,
+    trigger,
+    formState: { errors, touchedFields },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    mode: "onBlur",
   });
+
+  const phoneValue = watch("phone");
 
   useEffect(() => {
     // Load Turnstile script
@@ -73,7 +103,7 @@ const Contato = () => {
     script.onload = () => {
       if (window.turnstile && turnstileRef.current) {
         widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
-          sitekey: "0x4AAAAAAA0sCrXOxhR-aOBL", // Cloudflare test key - replace in production
+          sitekey: "0x4AAAAAAA0sCrXOxhR-aOBL",
           callback: (token: string) => {
             setTurnstileToken(token);
           },
@@ -86,6 +116,12 @@ const Contato = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rawValue = e.target.value;
+    const formatted = formatPhoneNumber(rawValue);
+    setValue("phone", formatted);
+  };
 
   const onSubmit = async (data: ContactFormData) => {
     if (!turnstileToken) {
@@ -156,9 +192,10 @@ const Contato = () => {
                   id="fullName"
                   placeholder="Seu nome completo"
                   {...register("fullName")}
-                  className={errors.fullName ? "border-destructive" : ""}
+                  onBlur={() => trigger("fullName")}
+                  className={errors.fullName && touchedFields.fullName ? "border-destructive" : ""}
                 />
-                {errors.fullName && (
+                {errors.fullName && touchedFields.fullName && (
                   <p className="text-sm text-destructive">{errors.fullName.message}</p>
                 )}
               </div>
@@ -170,9 +207,10 @@ const Contato = () => {
                   type="email"
                   placeholder="seu@email.com"
                   {...register("email")}
-                  className={errors.email ? "border-destructive" : ""}
+                  onBlur={() => trigger("email")}
+                  className={errors.email && touchedFields.email ? "border-destructive" : ""}
                 />
-                {errors.email && (
+                {errors.email && touchedFields.email && (
                   <p className="text-sm text-destructive">{errors.email.message}</p>
                 )}
               </div>
@@ -182,10 +220,12 @@ const Contato = () => {
                 <Input
                   id="phone"
                   placeholder="(48) 99999-9999"
-                  {...register("phone")}
-                  className={errors.phone ? "border-destructive" : ""}
+                  value={phoneValue || ""}
+                  onChange={handlePhoneChange}
+                  onBlur={() => trigger("phone")}
+                  className={errors.phone && touchedFields.phone ? "border-destructive" : ""}
                 />
-                {errors.phone && (
+                {errors.phone && touchedFields.phone && (
                   <p className="text-sm text-destructive">{errors.phone.message}</p>
                 )}
               </div>
@@ -197,9 +237,10 @@ const Contato = () => {
                   placeholder="Sua mensagem..."
                   rows={5}
                   {...register("message")}
-                  className={errors.message ? "border-destructive" : ""}
+                  onBlur={() => trigger("message")}
+                  className={errors.message && touchedFields.message ? "border-destructive" : ""}
                 />
-                {errors.message && (
+                {errors.message && touchedFields.message && (
                   <p className="text-sm text-destructive">{errors.message.message}</p>
                 )}
               </div>
@@ -208,7 +249,7 @@ const Contato = () => {
 
               <Button
                 type="submit"
-                variant="cta"
+                variant="brand"
                 size="lg"
                 className="w-full"
                 disabled={isSubmitting}

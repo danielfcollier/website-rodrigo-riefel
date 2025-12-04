@@ -18,7 +18,7 @@ const quotes = [
 
 const QuotesSection = () => {
   return (
-    <section className="section-brand">
+    <section className="section-white">
       <div className="container-section">
         {quotes.map((item, index) => (
           <div 
@@ -30,18 +30,18 @@ const QuotesSection = () => {
                 <img 
                   src={item.image} 
                   alt="Dr. Rodrigo Riefel"
-                  className="w-full h-80 md:h-96 object-cover"
+                  className="w-full h-80 md:h-96 object-cover object-top"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-bold/30 to-transparent" />
               </div>
             </div>
             <div className="flex-1">
-              <blockquote className="text-primary-foreground">
+              <blockquote className="text-brand-bold">
                 <p className="quote-text text-2xl md:text-3xl leading-relaxed mb-4">
                   "{item.quote}"
                 </p>
-                <cite className="text-brand-complementary font-semibold not-italic">
+                <cite className="text-brand-complementary-bold font-semibold not-italic">
                   {item.reference}
                 </cite>
               </blockquote>
