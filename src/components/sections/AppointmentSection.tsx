@@ -14,8 +14,8 @@ const AppointmentSection = () => {
 
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
           {/* Left column - 3 items on desktop, all items stacked on mobile */}
-          <div className="flex flex-col gap-4 md:gap-6">
-            <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex flex-col gap-4 md:gap-6 items-center md:items-start">
+            <div className="flex items-center gap-3 md:gap-4 w-full max-w-xs">
               <div className="p-3 bg-primary-foreground/10 rounded-lg flex-shrink-0">
                 <MapPin className="w-6 h-6 text-brand-complementary" />
               </div>
@@ -25,7 +25,7 @@ const AppointmentSection = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 md:gap-4">
+            <div className="flex items-center gap-3 md:gap-4 w-full max-w-xs">
               <div className="p-3 bg-primary-foreground/10 rounded-lg flex-shrink-0">
                 <Clock className="w-6 h-6 text-brand-complementary" />
               </div>
@@ -36,7 +36,7 @@ const AppointmentSection = () => {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 md:gap-4 group"
+              className="flex items-center gap-3 md:gap-4 group w-full max-w-xs"
             >
               <div className="p-3 bg-whatsapp/20 rounded-lg group-hover:bg-whatsapp/30 transition-colors flex-shrink-0">
                 <MessageCircle className="w-6 h-6 text-whatsapp" />
@@ -47,7 +47,7 @@ const AppointmentSection = () => {
             </a>
 
             {/* 4th item - shows in mobile column only */}
-            <div className="flex items-center gap-3 md:gap-4 md:hidden">
+            <div className="flex items-center gap-3 md:gap-4 md:hidden w-full max-w-xs">
               <div className="p-3 bg-primary-foreground/10 rounded-lg flex-shrink-0">
                 <HeartHandshake className="w-6 h-6 text-brand-complementary" />
               </div>
@@ -58,8 +58,8 @@ const AppointmentSection = () => {
             </div>
 
             {/* CTA - shows only on mobile */}
-            <div className="flex md:hidden justify-center mt-4">
-              <Button variant="cta" size="xl" className="w-full max-w-xs text-lg" asChild>
+            <div className="flex md:hidden justify-center mt-4 w-full max-w-xs">
+              <Button variant="cta" size="xl" className="w-full text-lg" asChild>
                 <a href={CTA_LINK} target="_blank" rel="noopener noreferrer">
                   Agendar Consulta
                 </a>
@@ -68,8 +68,8 @@ const AppointmentSection = () => {
           </div>
 
           {/* Right column - 1 item + CTA on desktop only */}
-          <div className="hidden md:flex flex-col items-center justify-center gap-6">
-            <div className="flex items-center gap-4">
+          <div className="hidden md:flex flex-col items-center justify-start gap-6">
+            <div className="flex items-center gap-4 w-full max-w-xs">
               <div className="p-3 bg-primary-foreground/10 rounded-lg flex-shrink-0">
                 <HeartHandshake className="w-6 h-6 text-brand-complementary" />
               </div>
