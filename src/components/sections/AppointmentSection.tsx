@@ -12,55 +12,51 @@ const AppointmentSection = () => {
           Agendamento de Consultas
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <div className="space-y-6 flex flex-col items-center md:items-start">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-primary-foreground/10 rounded-lg">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-6">
+            <div className="flex items-center gap-3 md:gap-4">
+              <div className="p-3 bg-primary-foreground/10 rounded-lg flex-shrink-0">
                 <MapPin className="w-6 h-6 text-brand-complementary" />
               </div>
               <div>
-                <p className="font-semibold text-primary-foreground">Online para todo o Brasil</p>
-                <p className="text-primary-foreground/80">Presencial em Florianópolis</p>
+                <p className="font-semibold text-primary-foreground text-sm md:text-base">Online para todo o Brasil</p>
+                <p className="text-primary-foreground/80 text-sm md:text-base">Presencial em Florianópolis</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-primary-foreground/10 rounded-lg">
+            <div className="flex items-center gap-3 md:gap-4">
+              <div className="p-3 bg-primary-foreground/10 rounded-lg flex-shrink-0">
                 <Clock className="w-6 h-6 text-brand-complementary" />
               </div>
-              <div>
-                <p className="font-semibold text-primary-foreground">Consultas de 1 hora</p>
-              </div>
+              <p className="font-semibold text-primary-foreground text-sm md:text-base">Consultas de 1 hora</p>
             </div>
 
             <a 
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 group"
+              className="flex items-center gap-3 md:gap-4 group"
             >
-              <div className="p-3 bg-whatsapp/20 rounded-lg group-hover:bg-whatsapp/30 transition-colors">
+              <div className="p-3 bg-whatsapp/20 rounded-lg group-hover:bg-whatsapp/30 transition-colors flex-shrink-0">
                 <MessageCircle className="w-6 h-6 text-whatsapp" />
               </div>
-              <div>
-                <p className="font-semibold text-whatsapp group-hover:underline">
-                  Dúvidas? Entre em contato
-                </p>
-              </div>
+              <p className="font-semibold text-whatsapp group-hover:underline text-sm md:text-base">
+                Dúvidas? Entre em contato
+              </p>
             </a>
-          </div>
 
-          <div className="space-y-6 flex flex-col items-center">
-            <div className="flex flex-col items-center text-center gap-2 mb-4">
-              <div className="p-3 bg-primary-foreground/10 rounded-lg">
+            <div className="flex items-center gap-3 md:gap-4">
+              <div className="p-3 bg-primary-foreground/10 rounded-lg flex-shrink-0">
                 <HeartHandshake className="w-6 h-6 text-brand-complementary" />
               </div>
               <div>
-                <p className="font-semibold text-primary-foreground">Consultas Particulares</p>
-                <p className="text-primary-foreground/80">Não aceita Planos de Saúde</p>
+                <p className="font-semibold text-primary-foreground text-sm md:text-base">Consultas Particulares</p>
+                <p className="text-primary-foreground/80 text-sm md:text-base">Não aceita Planos de Saúde</p>
               </div>
             </div>
+          </div>
 
+          <div className="flex flex-col items-center justify-center">
             <Button variant="cta" size="xl" className="w-full max-w-xs text-lg" asChild>
               <a href={CTA_LINK} target="_blank" rel="noopener noreferrer">
                 Agendar Consulta
