@@ -58,13 +58,11 @@ const AppointmentSection = () => {
             </div>
 
             {/* CTA - shows only on mobile */}
-            <div className="flex md:hidden justify-center mt-4 w-full max-w-xs">
-              <Button variant="cta" size="xl" className="w-full text-lg" asChild>
-                <a href={CTA_LINK} target="_blank" rel="noopener noreferrer">
-                  Agendar Consulta
-                </a>
-              </Button>
-            </div>
+            <Button variant="cta" size="xl" className="md:hidden w-full max-w-xs mt-4 text-lg" asChild>
+              <a href={CTA_LINK} target="_blank" rel="noopener noreferrer">
+                Agendar Consulta
+              </a>
+            </Button>
           </div>
 
           {/* Right column - 1 item + CTA on desktop only */}
