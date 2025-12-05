@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import logoOfficial from "@/assets/logo_official.png";
+import logoOfficial from "@/assets/logo_official.png?optimized";
 
 const CTA_LINK = "https://api.whatsapp.com/send?phone=5548988020380&text=Ol%C3%A1%20Dr.%20Rodrigo%20Riefel,%0A%0Aestou%20entrando%20em%20contato%20para%20agendar%20uma%20consulta.%0A%0AMe%20chamo";
 
@@ -12,6 +12,8 @@ const Header = () => {
             <img 
               src={logoOfficial} 
               alt="Logo Dr. Rodrigo Riefel" 
+              width={48}
+              height={48}
               className="h-12 w-auto"
               loading="eager"
             />

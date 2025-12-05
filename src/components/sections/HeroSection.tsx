@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.jpg?optimized";
 
 const CTA_LINK = "https://api.whatsapp.com/send?phone=5548988020380&text=Ol%C3%A1%20Dr.%20Rodrigo%20Riefel,%0A%0Aestou%20entrando%20em%20contato%20para%20agendar%20uma%20consulta.%0A%0AMe%20chamo";
 
@@ -8,12 +8,15 @@ const HeroSection = () => {
     <section 
       id="hero"
       className="relative min-h-[80vh] flex items-center"
-      style={{
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
     >
+      {/* Hero background with fetchpriority */}
+      <img 
+        src={heroBg}
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
       <div className="container-section relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div 

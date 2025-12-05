@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Youtube, Globe, Music } from "lucide-react";
-import profileImage from "@/assets/rodrigo-riefel_profile.jpeg";
+import profileImage from "@/assets/rodrigo-riefel_profile.jpeg?optimized";
 
 const CTA_LINK = "https://api.whatsapp.com/send?phone=5548988020380&text=Ol%C3%A1%20Dr.%20Rodrigo%20Riefel,%0A%0Aestou%20entrando%20em%20contato%20para%20agendar%20uma%20consulta.%0A%0AMe%20chamo";
 
@@ -39,6 +39,8 @@ const VamosLa = () => {
           <img 
             src={profileImage} 
             alt="Dr. Rodrigo Riefel"
+            width={128}
+            height={128}
             className="w-32 h-32 rounded-full object-cover object-[60%_25%] border-4 border-brand-complementary shadow-2xl"
           />
         </div>
