@@ -1,5 +1,5 @@
 import { Instagram } from "lucide-react";
-import logoOfficial from "@/assets/logo_official.png";
+import logoOfficial from "@/assets/logo_official.png?optimized";
 
 const Footer = () => {
   return (
@@ -11,6 +11,8 @@ const Footer = () => {
               <img 
                 src={logoOfficial} 
                 alt="Logo Dr. Rodrigo Riefel" 
+                width={40}
+                height={40}
                 className="h-10 w-auto"
                 loading="lazy"
               />

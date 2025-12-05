@@ -1,5 +1,5 @@
 import { Brain, Compass, Stethoscope } from "lucide-react";
-import profileImage from "@/assets/rodrigo-riefel_profile.jpeg";
+import profileImage from "@/assets/rodrigo-riefel_profile.jpeg?optimized";
 
 const credentials = [
   {
@@ -26,6 +26,8 @@ const BioSection = () => {
               <img 
                 src={profileImage} 
                 alt="Dr. Rodrigo Riefel"
+                width={320}
+                height={320}
                 className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover object-[60%_25%] border-4 border-brand-complementary shadow-2xl mx-auto"
                 loading="lazy"
               />

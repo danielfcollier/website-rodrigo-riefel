@@ -1,5 +1,5 @@
-import section5Image from "@/assets/rodrigo-riefel_section5.jpeg";
-import templeImage from "@/assets/rodrigo-riefel_temple.jpeg";
+import section5Image from "@/assets/rodrigo-riefel_section5.jpeg?optimized";
+import templeImage from "@/assets/rodrigo-riefel_temple.jpeg?optimized";
 
 const quotes = [
   {
@@ -30,6 +30,8 @@ const QuotesSection = () => {
                 <img 
                   src={item.image} 
                   alt="Dr. Rodrigo Riefel"
+                  width={560}
+                  height={384}
                   className="w-full h-80 md:h-96 object-cover object-top"
                   loading="lazy"
                 />

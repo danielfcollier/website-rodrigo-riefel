@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import adrianaImage from "@/assets/testimonial_adriana.jpg";
-import jackieImage from "@/assets/testimonial_jackie.png";
+import adrianaImage from "@/assets/testimonial_adriana.jpg?optimized";
+import jackieImage from "@/assets/testimonial_jackie.png?optimized";
 
 const testimonials = [
   {
@@ -38,6 +38,8 @@ const TestimonialsSection = () => {
                 <img 
                   src={testimonial.image} 
                   alt={testimonial.name}
+                  width={64}
+                  height={64}
                   className="w-16 h-16 rounded-full object-cover border-2 border-brand-complementary"
                   loading="lazy"
                 />
