@@ -27,21 +27,19 @@ const DisordersSection = () => {
           Transtornos À Saúde Mental e Emocional
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto mb-12">
           {disorders.map((item, index) => (
             <div 
               key={index}
-              className="flex items-start gap-4 p-6 bg-brand/10 rounded-lg hover:bg-brand/15 transition-colors"
+              className="flex items-center gap-4 p-4 md:p-6 bg-brand/10 rounded-lg hover:bg-brand/15 transition-colors"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="p-3 bg-brand-complementary rounded-lg">
-                <item.icon className="w-8 h-8 text-brand-bold" />
+              <div className="p-3 bg-brand-complementary rounded-lg flex-shrink-0">
+                <item.icon className="w-6 h-6 md:w-8 md:h-8 text-brand-bold" />
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-brand-bold">
-                  {item.title}
-                </h3>
-              </div>
+              <h3 className="text-base md:text-xl font-semibold text-brand-bold">
+                {item.title}
+              </h3>
             </div>
           ))}
         </div>

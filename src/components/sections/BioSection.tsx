@@ -26,7 +26,7 @@ const BioSection = () => {
               <img 
                 src={profileImage} 
                 alt="Dr. Rodrigo Riefel"
-                className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover object-[75%_top] border-4 border-brand-complementary shadow-2xl mx-auto"
+                className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover object-[60%_25%] border-4 border-brand-complementary shadow-2xl mx-auto"
                 loading="lazy"
               />
             </div>

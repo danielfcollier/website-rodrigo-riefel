@@ -39,7 +39,7 @@ const VamosLa = () => {
           <img 
             src={profileImage} 
             alt="Dr. Rodrigo Riefel"
-            className="w-32 h-32 rounded-full object-cover object-top border-4 border-brand-complementary shadow-2xl"
+            className="w-32 h-32 rounded-full object-cover object-[60%_25%] border-4 border-brand-complementary shadow-2xl"
           />
         </div>
 
