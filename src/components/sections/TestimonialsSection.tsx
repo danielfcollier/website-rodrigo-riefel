@@ -1,87 +1,73 @@
-import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import adrianaImage from "@/assets/testimonial_adriana.jpg?optimized";
-import jackieImage from "@/assets/testimonial_jackie.png?optimized";
+import { Quote } from "lucide-react";
 
+// Dados atualizados para usar as versões otimizadas
 const testimonials = [
   {
-    name: "Adriana Casaroto",
-    role: "Psicóloga Sênior e Helper pelo Pathwork",
-    image: adrianaImage,
-    quote: "Maravilhoso contar com um Psiquiatra humanizado para encaminhamento de clientes, amigos e familiares. Profissional atualizado, cuidadoso e disponível. O recomendo há mais de 14 anos, sólida parceria e confiança.",
+    name: "Adriana Casarotto",
+    role: "Psicóloga Sênior",
+    image: "/optimized/testimonial_adriana-thumbnail.webp", // Usa a miniatura
+    text: "Maravilhoso contar com um Psiquiatra humanizado para encaminhamento de clientes, amigos e familiares. Profissional atualizado, cuidadoso e disponível.",
   },
   {
-    name: "Jackie Yue",
-    role: "Sócia-Presidente, Alkhemy Lab",
-    image: jackieImage,
-    quote: "É uma das pessoas mais incríveis que conheço: íntegro, sábio e compassivo - dedicado ao bem maior de todos que o procuram. Ele é parte do seleto grupo de profissionais 'guardiões do conhecimento' a quem confio nosso trabalho alquímico e terapêutico.",
+    name: "Martin Mayer",
+    role: "Consultor Econômico",
+    image: "/optimized/about_testimonial_martin_mayer-thumbnail.webp", // Usa a miniatura
+    text: "Traz para a gente muita segurança e sentimos uma profundidade na maneira em que ele consegue ficar atento àquilo que o paciente necessita.",
   },
+  {
+    name: "Joel Aleixo",
+    role: "Mestre Alquimista",
+    image: "/optimized/about_testimonial_joel_aleixo-thumbnail.webp", // Usa a miniatura
+    text: "O Rodrigo é um grande alquimista - um médico que busca integrar o conhecimento da ciência moderna com o saber antigo da alquimia.",
+  }
 ];
 
 const TestimonialsSection = () => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-
-  const toggleExpand = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
   return (
-    <section className="section-brand">
-      <div className="container-section">
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {testimonials.map((testimonial, index) => (
+    <section id="depoimentos" className="section-brand relative overflow-hidden">
+      {/* Background Decorativo Suave */}
+      <div className="absolute top-0 left-0 w-full h-full bg-brand-bold/50 pointer-events-none" />
+      
+      <div className="container-section relative z-10">
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-complementary">
+            Depoimentos
+          </h2>
+          <p className="text-white/80 max-w-2xl mx-auto">
+            O reconhecimento de quem confia no nosso trabalho.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((item, index) => (
             <div 
               key={index}
-              className="bg-primary-foreground/10 rounded-xl p-6 md:p-8"
+              className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center group"
             >
-              <div className="flex items-center gap-4 mb-4">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name}
-                  width={64}
-                  height={64}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-brand-complementary"
-                  loading="lazy"
-                />
-                <div>
-                  <h3 className="font-semibold text-lg text-primary-foreground">
-                    {testimonial.name}
-                  </h3>
-                  <p className="text-sm text-primary-foreground/70">
-                    {testimonial.role}
-                  </p>
+              <div className="mb-6 relative">
+                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-brand-complementary p-1">
+                  <img 
+                    src={item.image} 
+                    alt={item.name}
+                    width={80}
+                    height={80}
+                    className="w-full h-full rounded-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="absolute -bottom-2 -right-2 bg-brand-complementary text-brand-bold p-1.5 rounded-full">
+                  <Quote className="w-3 h-3 fill-current" />
                 </div>
               </div>
-
-              {/* Mobile: Collapsible */}
-              <div className="md:hidden">
-                <button 
-                  onClick={() => toggleExpand(index)}
-                  className="flex items-center gap-2 text-brand-complementary font-medium mb-2"
-                >
-                  {expandedIndex === index ? (
-                    <>
-                      <ChevronUp className="w-4 h-4" />
-                      Ocultar depoimento
-                    </>
-                  ) : (
-                    <>
-                      <ChevronDown className="w-4 h-4" />
-                      Ver depoimento
-                    </>
-                  )}
-                </button>
-                {expandedIndex === index && (
-                  <blockquote className="quote-text text-primary-foreground/80 animate-fade-in">
-                    "{testimonial.quote}"
-                  </blockquote>
-                )}
+              
+              <p className="text-white/90 italic mb-6 text-sm leading-relaxed">
+                "{item.text}"
+              </p>
+              
+              <div>
+                <h4 className="font-bold text-brand-complementary">{item.name}</h4>
+                <p className="text-xs text-white/50 uppercase tracking-wider mt-1">{item.role}</p>
               </div>
-
-              {/* Desktop: Always visible */}
-              <blockquote className="hidden md:block quote-text text-primary-foreground/80">
-                "{testimonial.quote}"
-              </blockquote>
             </div>
           ))}
         </div>
