@@ -18,8 +18,8 @@ const testimonials = [
     text: "Maravilhoso contar com um Psiquiatra humanizado para encaminhamento de clientes, amigos e familiares. Profissional atualizado, cuidadoso e disponível.",
   },
   {
-    name: "Jackie",
-    role: "Paciente",
+    name: "Jackie Yue",
+    role: "Sócia-Presidente, Alkhemy Lab",
     image: testimonialJackie,
     text: "Espaço para o depoimento da Jackie. Aqui você pode descrever a experiência dela com o Dr. Rodrigo, focando nos resultados e no atendimento humanizado.",
   }
