@@ -14,10 +14,11 @@ const Header = () => {
               alt="Logo Dr. Rodrigo Riefel" 
               width={48}
               height={48}
-              className="h-12 w-auto"
+              className="h-10 w-auto md:h-12"
               loading="eager"
             />
-            <span className="text-brand-complementary font-bold text-3xl tracking-wide uppercase">
+            {/* Ajuste de fonte aqui: text-lg no mobile, text-3xl no desktop */}
+            <span className="text-brand-complementary font-bold text-lg md:text-3xl tracking-wide uppercase">
               RODRIGO RIEFEL
             </span>
           </a>
