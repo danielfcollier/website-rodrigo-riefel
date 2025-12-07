@@ -2,8 +2,9 @@ import { lazy, Suspense } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
+import { SectionSkeleton } from "@/components/ui/skeleton"; // Importação Crítica
 
-// Lazy load sections below the fold
+// Lazy load das seções
 const DisordersSection = lazy(() => import("@/components/sections/DisordersSection"));
 const ServicesSection = lazy(() => import("@/components/sections/ServicesSection"));
 const QuotesSection = lazy(() => import("@/components/sections/QuotesSection"));
@@ -12,12 +13,6 @@ const BioSection = lazy(() => import("@/components/sections/BioSection"));
 const AppointmentSection = lazy(() => import("@/components/sections/AppointmentSection"));
 const PartnersSection = lazy(() => import("@/components/sections/PartnersSection"));
 
-const SectionLoader = () => (
-  <div className="min-h-[200px] flex items-center justify-center">
-    <div className="w-8 h-8 border-4 border-brand border-t-transparent rounded-full animate-spin" />
-  </div>
-);
-
 const Index = () => {
   return (
     <>
@@ -25,31 +20,31 @@ const Index = () => {
       <main>
         <HeroSection />
         
-        <Suspense fallback={<SectionLoader />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <DisordersSection />
         </Suspense>
         
-        <Suspense fallback={<SectionLoader />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <ServicesSection />
         </Suspense>
         
-        <Suspense fallback={<SectionLoader />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <QuotesSection />
         </Suspense>
         
-        <Suspense fallback={<SectionLoader />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <TestimonialsSection />
         </Suspense>
         
-        <Suspense fallback={<SectionLoader />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <BioSection />
         </Suspense>
         
-        <Suspense fallback={<SectionLoader />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <AppointmentSection />
         </Suspense>
         
-        <Suspense fallback={<SectionLoader />}>
+        <Suspense fallback={<SectionSkeleton />}>
           <PartnersSection />
         </Suspense>
       </main>
