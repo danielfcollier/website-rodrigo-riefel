@@ -21,11 +21,21 @@ const Header = () => {
               RODRIGO RIEFEL
             </span>
           </a>
-          <Button variant="cta" size="lg" className="hidden md:flex text-lg px-8" asChild>
-            <a href={CTA_LINK} target="_blank" rel="noopener noreferrer">
-              Agendar Consulta
+
+          <div className="flex items-center gap-6">
+            <a 
+              href="/sobre" 
+              className="text-brand-complementary font-bold text-sm tracking-widest uppercase hover:text-white transition-colors"
+            >
+              Sobre
             </a>
-          </Button>
+            
+            <Button variant="cta" size="lg" className="hidden md:flex text-lg px-8" asChild>
+              <a href={CTA_LINK} target="_blank" rel="noopener noreferrer">
+                Agendar Consulta
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </header>

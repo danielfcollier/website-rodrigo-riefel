@@ -28,6 +28,9 @@ const Footer = () => {
           </div>
 
           <nav className="flex items-center gap-6 text-sm text-brand-complementary">
+            <a href="/" className="hover:opacity-80 transition-opacity">
+              Início
+            </a>
             <a href="/sobre" className="hover:opacity-80 transition-opacity">
               Sobre
             </a>

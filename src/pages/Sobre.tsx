@@ -1,7 +1,24 @@
 import { useEffect } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Brain, Map, Stethoscope, FlaskConical, Activity, Heart, ArrowDown } from "lucide-react";
+import { 
+  Brain, 
+  Map, 
+  Stethoscope, 
+  FlaskConical, 
+  Activity, 
+  Heart, 
+  ArrowDown,
+  ChevronDown,
+  Quote
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { useState } from "react";
 
 // Imports de Imagens
 import aboutHeroBG from "@/assets/about_hero.jpg?optimized";
@@ -22,23 +39,21 @@ const Sobre = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans">
+    <div className="min-h-screen flex flex-col font-sans relative">
       <Header />
       
       <main className="flex-1 animate-fade-in">
         
-        {/* Section 2: Intro (Text Further Left) */}
+        {/* Section 2: Intro */}
         <section 
-          className="relative min-h-[60vh] flex items-center bg-cover bg-top"
+          className="relative min-h-[60vh] flex items-center bg-cover bg-center"
           style={{ backgroundImage: `url(${aboutHeroBG})` }}
           aria-label="Introdução Sobre Mim"
         >
-          {/* Dark Overlay for Text Contrast */}
-          <div className="absolute inset-0 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
           
           <div className="container-section relative z-10 w-full flex justify-start">
-            {/* Box aligned strictly to Left */}
-            <div className="bg-brand-bold/90 text-white p-8 md:p-12 rounded-xl max-w-2xl backdrop-blur-md shadow-2xl border border-white/10 md:mr-auto md:ml-0">
+            <div className="bg-brand-bold/60 text-white p-8 md:p-12 rounded-xl max-w-2xl backdrop-blur-md shadow-2xl border border-white/10 md:mr-auto md:ml-0">
               <h1 className="text-3xl md:text-4xl font-bold mb-6 text-brand-complementary">
                 Olá, sou o <br/> RODRIGO RIEFEL
               </h1>
@@ -58,19 +73,19 @@ const Sobre = () => {
           </div>
         </section>
 
-        {/* Section 3: Mission/Values (Compact) */}
+        {/* Section 3: Mission/Values */}
         <section className="bg-brand py-8 text-white border-t border-brand-complementary/20">
-          <div className="container-section py-4"> {/* Reduced vertical padding inside */}
+          <div className="container-section py-4">
             <div className="grid md:grid-cols-2 gap-8 md:gap-16">
               {/* Mission */}
               <div className="flex flex-col items-center text-center space-y-3 group">
                 <div className="flex items-center gap-3 mb-1">
-                  <Activity className="w-7 h-7 text-brand-complementary" />
-                  <h2 className="text-xl font-bold tracking-widest uppercase text-brand-complementary">Missão</h2>
+                  <Activity className="w-8 h-8 text-brand-complementary" />
+                  <h2 className="text-2xl font-bold tracking-widest uppercase text-brand-complementary">Missão</h2>
                 </div>
                 <div className="flex flex-col gap-1">
                   {["Cuidado", "Elevação", "Transformação"].map((item) => (
-                    <span key={item} className="text-lg font-light opacity-90">{item}</span>
+                    <span key={item} className="text-xl md:text-2xl font-light opacity-90">{item}</span>
                   ))}
                 </div>
               </div>
@@ -78,12 +93,12 @@ const Sobre = () => {
               {/* Values */}
               <div className="flex flex-col items-center text-center space-y-3 group">
                 <div className="flex items-center gap-3 mb-1">
-                  <Heart className="w-7 h-7 text-brand-complementary" />
-                  <h2 className="text-xl font-bold tracking-widest uppercase text-brand-complementary">Valores</h2>
+                  <Heart className="w-8 h-8 text-brand-complementary" />
+                  <h2 className="text-2xl font-bold tracking-widest uppercase text-brand-complementary">Valores</h2>
                 </div>
                 <div className="flex flex-col gap-1">
                    {["Amor", "Confiança", "Sabedoria"].map((item) => (
-                    <span key={item} className="text-lg font-light opacity-90">{item}</span>
+                    <span key={item} className="text-xl md:text-2xl font-light opacity-90">{item}</span>
                   ))}
                 </div>
               </div>
@@ -91,16 +106,15 @@ const Sobre = () => {
           </div>
         </section>
 
-        {/* Divider 1 */}
         <div className="h-4 bg-brand-bold w-full" aria-hidden="true" />
 
-        {/* Section 4: Quote (Transparent Box) */}
+        {/* Section 4: Quote */}
         <section 
-          className="relative py-16 flex items-center justify-center bg-fixed bg-cover bg-center"
+          className="relative py-16 flex items-center justify-center bg-cover bg-center"
           style={{ backgroundImage: `url(${section4Bg})` }}
           aria-label="Citação Destaque"
         >
-          <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px]" /> {/* Lighten bg for contrast */}
+          <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px]" />
           <div className="container-section relative z-10 px-4">
             <div className="bg-transparent p-6 md:p-12 max-w-4xl mx-auto border-l-8 border-brand pl-8">
               <p className="text-2xl md:text-4xl font-serif text-brand-bold text-center leading-relaxed font-bold drop-shadow-sm">
@@ -110,10 +124,9 @@ const Sobre = () => {
           </div>
         </section>
 
-        {/* Divider 2 */}
         <div className="h-4 bg-brand-complementary w-full" aria-hidden="true" />
 
-        {/* Section 5: Icons Bump (Compact) */}
+        {/* Section 5: Icons Bump */}
         <section className="bg-brand-bold py-10 text-white">
           <div className="container-section py-4">
             <div className="grid md:grid-cols-3 gap-8">
@@ -124,7 +137,7 @@ const Sobre = () => {
           </div>
         </section>
 
-        {/* Section 6: Testimonials (Better Tone) */}
+        {/* Section 6: Testimonials */}
         <section className="bg-white py-20 text-brand-bold">
           <div className="container-section space-y-16">
             <div className="text-center mb-8">
@@ -132,11 +145,12 @@ const Sobre = () => {
                <h2 className="text-3xl md:text-4xl font-bold mt-2 text-brand-bold">Parceiros de Jornada</h2>
             </div>
             
-            <div className="space-y-8">
+            <div className="space-y-6">
                 <TestimonialCard 
                   name="Martin Mayer"
                   role="Consultor Econômico"
                   text="Traz para a gente muita segurança e sentimos uma profundidade na maneira em que ele consegue ficar atento àquilo que o paciente necessita e que vai ajudá-lo na sua caminhada de cura."
+                  initial="M"
                   image={testimonialMartin}
                 />
 
@@ -144,6 +158,7 @@ const Sobre = () => {
                   name="Joel Aleixo"
                   role="Mestre Alquimista"
                   text="O Rodrigo é um grande alquimista - um médico que busca integrar o conhecimento da ciência moderna com o saber antigo da alquimia. Fico feliz e honrado por ter seu apoio, parceria e sabedoria nessa jornada de transformação e cura."
+                  initial="J"
                   image={testimonialJoel}
                 />
 
@@ -159,12 +174,11 @@ const Sobre = () => {
 
         {/* Section 7: Bio Section */}
         <section className="bg-brand py-20 text-white relative overflow-hidden">
-           {/* Decorative Background */}
            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
            
            <div className="container-section relative z-10 grid md:grid-cols-2 gap-12 items-center">
              
-             {/* Left Column: Image & Info */}
+             {/* Left Column */}
              <div className="text-center">
                 <div className="relative inline-block group">
                   <div className="absolute inset-0 bg-brand-complementary rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
@@ -185,7 +199,7 @@ const Sobre = () => {
                 </p>
              </div>
              
-             {/* Right Column: Credentials */}
+             {/* Right Column */}
              <div className="space-y-8">
                <div className="border-l-4 border-brand-complementary pl-6">
                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
@@ -203,7 +217,7 @@ const Sobre = () => {
            </div>
         </section>
 
-        {/* Section 8: Moments of History (Highlights Full Width) */}
+        {/* Section 8: Moments of History */}
         <section className="bg-white py-20 md:py-28">
           <div className="container-section">
             <div className="text-center mb-20">
@@ -243,7 +257,7 @@ const Sobre = () => {
               <ExperienceItem 
                 number="04"
                 title="Arte, Cultura e Rock'n Roll"
-                text="A arte e a música tem um imenso poder sobre a mente, os sentimentos e na expressão humana. O grande professor e neurologista Oliver Sacks nos dizia: 'Música pode nos tirar da depressão ou nos levar às lágrimas - é um remédio, um tônico, um suco de laranja para o ouvido. Mas para muitos dos meus pacientes neurológicos, música é ainda mais - ela pode dar acesso, mesmo quando nenhum medicamento consegue, ao movimento, ao discurso, à vida. Para eles, música não é luxo, mas uma necessidade.' Desde de berço a música esteve muito presente na minha vida, através de meu pai - um talentoso maestro -, tios e avô; ela embalou e deu ritmo a minha caminhada até hoje."
+                text="A arte e a música tem um imenso poder sobre a mente, os sentimentos e na expressão humana. O grande professor e neurologista Oliver Sacks nos dizia: 'Música pode nos tirar da depressão ou nos levar às lágrimas - é um remédio, um tônico, um suco de laranja para o ouvido. Mas para muitos dos meus pacientes neurológicos, música é ainda mais - ela pode dar acesso, mesmo quando nenhum medicamento consegue, ao movimento, ao discurso, à vida.' Desde de berço a música esteve muito presente na minha vida, através de meu pai - um talentoso maestro -, tios e avô; ela embalou e deu ritmo a minha caminhada até hoje."
                 highlightTitle="the GROGS"
                 highlightText="Há alguns anos, a vida em Florianópolis me oportunizou encontrar colegas e grandes amigos que também tinham a música como sua arte e autoexpressão. Assim, nasceu The Grogs que fez a alegria de muitas pessoas, tocando mentes e corações."
                 image={experiences4}
@@ -269,38 +283,78 @@ const Sobre = () => {
   );
 };
 
-// Sub-componentes Otimizados
+// Sub-componentes
 
 const IconBox = ({ icon: Icon, title }: { icon: any, title: string }) => (
   <div className="flex flex-col items-center text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors duration-300">
     <div className="p-3 bg-brand-complementary rounded-full mb-3 text-brand-bold shadow-lg">
-      <Icon className="w-6 h-6" />
+      <Icon className="w-8 h-8" />
     </div>
-    <h3 className="text-base font-bold uppercase tracking-wide text-brand-complementary">{title}</h3>
+    <h3 className="text-xl font-bold uppercase tracking-wide text-brand-complementary">{title}</h3>
   </div>
 );
 
-const TestimonialCard = ({ name, role, text, image, initial }: { name: string, role: string, text: string, image?: string, initial?: string }) => (
-  <div className="bg-brand/5 rounded-2xl p-8 md:p-10 shadow-sm border border-brand-complementary/20 hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row gap-8 items-center md:items-start">
-    <div className="flex-shrink-0 flex flex-col items-center text-center md:w-48">
-      <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-brand-complementary mb-4 shadow-sm bg-white flex items-center justify-center">
-        {image ? (
-            <img src={image} alt={name} className="w-full h-full object-cover" />
-        ) : (
-            <span className="text-3xl font-bold text-brand/30">{initial}</span>
-        )}
+// Cartão de Depoimento Responsivo (Colapsável APENAS no Mobile)
+const TestimonialCard = ({ name, role, text, image, initial }: { name: string, role: string, text: string, image?: string, initial?: string }) => {
+  const [isOpen, setIsOpen] = useState(false); // Estado inicial: Fechado (Mobile)
+
+  return (
+    <div className="bg-brand/5 rounded-2xl p-6 md:p-8 shadow-sm border border-brand-complementary/20 hover:shadow-md transition-all duration-300">
+      <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+        
+        {/* Header do Card (Sempre Visível) */}
+        <div className="flex-shrink-0 flex flex-col items-center text-center md:w-48">
+          <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-brand-complementary mb-3 shadow-sm bg-white flex items-center justify-center">
+            {image ? (
+                <img src={image} alt={name} className="w-full h-full object-cover" />
+            ) : (
+                <span className="text-3xl font-bold text-brand/30">{initial}</span>
+            )}
+          </div>
+          <h3 className="font-bold text-lg text-brand-bold leading-tight">{name}</h3>
+          <p className="text-xs uppercase tracking-wide text-brand-bold/60 font-bold mt-1">{role}</p>
+        </div>
+
+        {/* Área de Conteúdo */}
+        <div className="flex-1 w-full text-center md:text-left flex flex-col items-center md:items-start justify-center">
+          
+          {/* MODO DESKTOP: Sempre Visível (md:block) */}
+          <div className="hidden md:block relative pt-2">
+             <Quote className="w-8 h-8 text-brand-complementary/30 absolute -top-2 -left-4 transform -scale-x-100" />
+             <p className="text-lg text-brand-bold/80 leading-relaxed italic relative z-10 pl-6">
+               {text}
+             </p>
+          </div>
+
+          {/* MODO MOBILE: Colapsável (md:hidden) */}
+          <div className="md:hidden w-full">
+            <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+              <CollapsibleTrigger asChild>
+                <Button variant="ghost" className="p-0 h-auto hover:bg-transparent group">
+                  <div className="flex items-center gap-2 text-brand-bold/70 group-hover:text-brand-bold transition-colors cursor-pointer">
+                    <span className="text-sm font-semibold uppercase tracking-wider">
+                      {isOpen ? "Ler menos" : "Ler depoimento"}
+                    </span>
+                    <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                  </div>
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="w-full overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                <div className="relative pt-6 pb-2">
+                  <Quote className="w-8 h-8 text-brand-complementary/30 absolute -top-2 left-0 transform -scale-x-100" />
+                  <p className="text-lg text-brand-bold/80 leading-relaxed italic relative z-10 px-4">
+                    {text}
+                  </p>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          </div>
+
+        </div>
       </div>
-      <h3 className="font-bold text-lg text-brand-bold leading-tight">{name}</h3>
-      <p className="text-xs uppercase tracking-wide text-brand-bold/60 font-bold mt-1">{role}</p>
     </div>
-    <div className="flex-1 relative">
-      <span className="text-6xl text-brand-complementary/20 font-serif absolute -top-4 -left-2 select-none">“</span>
-      <p className="text-lg text-brand-bold/80 leading-relaxed italic relative z-10 pl-4 pt-2">
-        {text}
-      </p>
-    </div>
-  </div>
-);
+  );
+};
 
 const BioItem = ({ icon: Icon, text }: { icon: any, text: string }) => (
   <div className="flex items-center gap-5 group p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5">
