@@ -1,6 +1,5 @@
 interface Env {
   GOOGLE_SCRIPT_URL: string;
-  TURNSTILE_SECRET_KEY: string;
 }
 
 interface ContactRequest {
@@ -9,7 +8,6 @@ interface ContactRequest {
   phone: string;
   message: string;
   createdAt: string;
-  turnstileToken: string;
 }
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
@@ -17,33 +15,6 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
   try {
     const body: ContactRequest = await request.json();
-
-    // Validate Turnstile token
-    const turnstileResponse = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          secret: env.TURNSTILE_SECRET_KEY || "1x0000000000000000000000000000000AA", // Test secret key
-          response: body.turnstileToken,
-        }),
-      }
-    );
-
-    const turnstileResult = await turnstileResponse.json() as { success: boolean };
-
-    if (!turnstileResult.success) {
-      return new Response(
-        JSON.stringify({ error: "Verificação de segurança falhou" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-    }
 
     // Send to Google Apps Script
     if (env.GOOGLE_SCRIPT_URL) {
@@ -76,7 +47,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   } catch (error) {
     console.error("Contact form error:", error);
     return new Response(
-      JSON.stringify({ error: error.message}),
+      JSON.stringify({ error: error instanceof Error ? error.message : "Erro desconhecido" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json" },

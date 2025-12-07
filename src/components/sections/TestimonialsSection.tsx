@@ -1,24 +1,19 @@
 import { Quote } from "lucide-react";
+import testimonialAdriana from "@/assets/testimonial_adriana.jpg?optimized";
+import testimonialJackie from "@/assets/testimonial_jackie.png"; // Importação da imagem da Jackie
 
-// Dados atualizados para usar as versões otimizadas
 const testimonials = [
   {
     name: "Adriana Casarotto",
     role: "Psicóloga Sênior",
-    image: "/optimized/testimonial_adriana-thumbnail.webp", // Usa a miniatura
+    image: testimonialAdriana,
     text: "Maravilhoso contar com um Psiquiatra humanizado para encaminhamento de clientes, amigos e familiares. Profissional atualizado, cuidadoso e disponível.",
   },
   {
-    name: "Martin Mayer",
-    role: "Consultor Econômico",
-    image: "/optimized/about_testimonial_martin_mayer-thumbnail.webp", // Usa a miniatura
-    text: "Traz para a gente muita segurança e sentimos uma profundidade na maneira em que ele consegue ficar atento àquilo que o paciente necessita.",
-  },
-  {
-    name: "Joel Aleixo",
-    role: "Mestre Alquimista",
-    image: "/optimized/about_testimonial_joel_aleixo-thumbnail.webp", // Usa a miniatura
-    text: "O Rodrigo é um grande alquimista - um médico que busca integrar o conhecimento da ciência moderna com o saber antigo da alquimia.",
+    name: "Jackie Yue", // Nome provisório
+    role: "Sócia-Presidente, Alkhemy Lab", // Cargo provisório
+    image: testimonialJackie,
+    text: "Espaço para o depoimento da Jackie. Aqui você pode descrever a experiência dela com o Dr. Rodrigo, focando nos resultados e no atendimento humanizado.",
   }
 ];
 
@@ -38,7 +33,8 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Grid ajustado para 2 colunas centralizadas */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {testimonials.map((item, index) => (
             <div 
               key={index}

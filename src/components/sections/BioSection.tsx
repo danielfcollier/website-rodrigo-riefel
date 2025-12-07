@@ -67,4 +67,4 @@ const BioSection = () => {
   );
 };
 
-export default BioSection;
+export default BioSection;  
